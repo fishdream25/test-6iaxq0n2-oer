@@ -1,0 +1,1518 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>test</title>
+<meta name="generator" content="Alembic (orz-markdown@1.3.2)">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.35/dist/katex.min.css">
+<style>
+/* ==========================================================================
+   Dark Elegant Theme — markdown-it-customize
+   Google Fonts: Cinzel (headings) · Source Serif 4 (body) · JetBrains Mono (code)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* --- common.css (inlined) --- */
+/* Shared structural rules for all themes. Theme files should keep visual styling
+   and variables, while this file handles cross-theme behavior and layout hooks. */
+
+.markdown-body table {
+  width: max-content;
+  max-width: 100%;
+  display: block;
+  overflow-x: auto;
+}
+
+.markdown-body img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.markdown-body img:not([width]) {
+  width: auto;
+}
+.markdown-body img:not([height]) {
+  height: auto;
+}
+
+.markdown-body p > img {
+  display: inline;
+  margin: 0;
+}
+
+.markdown-body span.success,
+.markdown-body span.info,
+.markdown-body span.warning,
+.markdown-body span.danger {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.markdown-body div.smiles-render {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0;
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.markdown-body div.smiles-render canvas,
+.markdown-body canvas[data-smiles] {
+  display: block;
+  max-width: min(100%, 16rem);
+  height: auto;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.markdown-body span.qrcode {
+  display: inline-block;
+  position: relative;
+  padding: 4px;
+  line-height: 0;
+  cursor: zoom-in;
+}
+
+.markdown-body .qrcode__icon {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  width: 1rem;
+  height: 1rem;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #111;
+  font-size: 0.7rem;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.16s ease, transform 0.16s ease;
+  pointer-events: none;
+}
+
+.markdown-body span.qrcode:hover .qrcode__icon,
+.markdown-body span.qrcode:focus-visible .qrcode__icon,
+.markdown-body span.qrcode.is-expanded .qrcode__icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.markdown-body span.qrcode.is-expanded {
+  visibility: hidden;
+}
+
+.qrcode-overlay {
+  position: fixed !important;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  z-index: 10001;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: min(90vmin, 36rem) !important;
+  height: min(90vmin, 36rem) !important;
+  aspect-ratio: 1 / 1;
+  max-width: calc(100vw - 2rem) !important;
+  max-height: calc(100vh - 2rem) !important;
+  padding: 1.5rem !important;
+  background: rgba(10, 16, 24, 0.86) !important;
+  border-radius: 1rem !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: zoom-out;
+}
+
+.markdown-body span.qrcode svg,
+.qrcode-overlay svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.qrcode-overlay svg {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100%;
+  max-height: 100%;
+  flex: 0 1 auto;
+  object-fit: contain;
+}
+
+.qrcode-overlay .qrcode__icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media print {
+  table {
+    display: table !important;
+    width: auto !important;
+    max-width: 100% !important;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tfoot {
+    display: table-footer-group;
+  }
+
+  tr,
+  img,
+  svg,
+  canvas,
+  iframe,
+  video,
+  pre,
+  blockquote,
+  .smiles-render,
+  .qrcode {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .youtube-embed {
+    display: none !important;
+  }
+
+  .qrcode__icon {
+    display: none !important;
+  }
+}
+/* --- end common.css --- */
+/* --------------------------------------------------------------------------
+   Design Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  /* Palette */
+  --bg:            #0d0f18;
+  --bg-surface:    #13161f;
+  --bg-elevated:   #1c1f2e;
+  --bg-input:      #252836;
+  --border:        #2e3248;
+  --border-subtle: #1e2130;
+
+  --text-primary:  #e4e8f0;
+  --text-secondary:#9aa3b8;
+  --text-muted:    #60677d;
+  --text-heading:  #f0f4fc;
+  --text-heading-2: #c7d7ff;
+  --text-heading-3: #a9c1f0;
+  --text-heading-5: #8eaede;
+
+  --accent:        #5f8cff;  /* blue-violet */
+  --accent-dim:    #3f5fa8;
+  --accent-glow:   rgba(95, 140, 255, 0.15);
+
+  --link:          #82b4ff;
+  --link-visited:  #a9c2ff;
+
+  /* Code */
+  --code-bg:       #1a1d2e;
+  --code-text:     #cdd6f4;
+  --code-border:   #313554;
+
+  /* Semantic colours */
+  --success-bg:    #0d2318;  --success-border:#1a5e35;  --success-text:  #4ade80;
+  --info-bg:       #071c30;  --info-border:   #1a4f7a;  --info-text:     #60a5fa;
+  --warning-bg:    #231a07;  --warning-border:#7a560d;  --warning-text:  #fbbf24;
+  --danger-bg:     #230d0d;  --danger-border: #7a1a1a;  --danger-text:   #f87171;
+
+  /* Inline span colours */
+  --span-red:      #f87171;
+  --span-yellow:   #fbbf24;
+  --span-green:    #4ade80;
+  --span-blue:     #60a5fa;
+
+  /* Typography scale */
+  --base-size: 1rem;
+  --line-height: 1.75;
+  --fs-base:  var(--base-size); /* 16px default */
+  --fs-sm:    0.875rem;
+  --fs-xs:    0.8rem;
+  --fs-lg:    1.125rem;
+  --fs-xl:    1.25rem;
+  --lh-text:  var(--line-height);
+  --lh-tight: 1.3;
+
+  /* Spacing */
+  --gap:   1.5rem;
+  --gap-sm:0.75rem;
+  --gap-xs:0.375rem;
+
+  /* Radii */
+  --radius:    8px;
+  --radius-sm: 4px;
+  --radius-lg: 12px;
+
+  /* Transitions */
+  --t: 0.2s ease;
+
+  /* Markdown body container toggles */
+  --markdown-body-max-width: 860px;
+  --markdown-body-padding: clamp(1.5rem, 5vw, 3.5rem);
+  --markdown-body-border: 1px solid var(--border-subtle);
+  --markdown-body-radius: var(--radius-lg);
+  --markdown-body-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+   Reset & Base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: var(--base-size);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Source Serif 4', Georgia, 'Noto Serif SC', 'Noto Serif TC', serif;
+  font-weight: 400;
+  line-height: var(--lh-text);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Scrollbars (WebKit)
+   -------------------------------------------------------------------------- */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-surface); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-dim); }
+
+/* --------------------------------------------------------------------------
+   Article wrapper
+   -------------------------------------------------------------------------- */
+.markdown-body {
+  display: flow-root;
+  max-width: var(--markdown-body-max-width);
+  margin: 0 auto;
+  background: var(--bg-surface);
+  border: var(--markdown-body-border);
+  border-radius: var(--markdown-body-radius);
+  box-shadow: var(--markdown-body-shadow);
+  padding: var(--markdown-body-padding);
+}
+
+/* --------------------------------------------------------------------------
+   Headings
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  clear: both;
+  font-family: 'Cinzel', Georgia, 'Noto Serif SC', 'Noto Serif TC', serif;
+  color: var(--text-heading);
+  line-height: var(--lh-tight);
+  font-weight: 700;
+  margin-top: 2.25em;
+  margin-bottom: 0.6em;
+  scroll-margin-top: 4rem;
+}
+h1:first-child, h2:first-child { margin-top: 0; }
+
+h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.4em 1em;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+h2 {
+  font-size: clamp(1.4rem, 3vw, 1.875rem);
+  color: var(--text-heading-2);
+  border-bottom: 1px solid var(--accent-dim);
+  padding-bottom: 0.3em;
+}
+h3 {
+  font-size: 1.375rem;
+  color: var(--text-heading-3);
+  padding-left: 1.4em;
+  position: relative;
+}
+h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.55em;
+  height: 0.55em;
+  border-radius: 999px;
+  background: var(--accent);
+}
+h4 { font-size: 1.125rem; font-weight: 600; color: var(--accent); }
+h5 { font-size: 1rem;     font-weight: 600; color: var(--text-heading-5); }
+h6 { font-size: 0.9rem;   font-weight: 600; color: var(--text-secondary); }
+
+/* Anchor links from markdown-it-anchor */
+.header-anchor {
+  float: left;
+  margin-left: -1.25em;
+  padding-right: 0.25em;
+  opacity: 0;
+  color: var(--accent);
+  text-decoration: none;
+  font-family: 'Source Serif 4', 'Noto Sans SC', 'Noto Sans TC', sans-serif;
+  font-size: 0.75em;
+  transition: opacity var(--t);
+}
+h1:hover .header-anchor,
+h2:hover .header-anchor,
+h3:hover .header-anchor,
+h4:hover .header-anchor { opacity: 0.6; }
+
+/* --------------------------------------------------------------------------
+   Paragraphs & Spacing
+   -------------------------------------------------------------------------- */
+p { margin-bottom: var(--gap); }
+p:last-child { margin-bottom: 0; }
+
+/* --------------------------------------------------------------------------
+   Links
+   -------------------------------------------------------------------------- */
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: rgba(130, 180, 255, 0.35);
+  text-underline-offset: 3px;
+  transition: color var(--t), text-decoration-color var(--t);
+}
+a:hover { color: #aecfff; text-decoration-color: rgba(174, 207, 255, 0.7); }
+a:visited { color: var(--link-visited); }
+
+/* --------------------------------------------------------------------------
+   Emphasis
+   -------------------------------------------------------------------------- */
+strong { font-weight: 600; color: var(--text-heading); }
+em { font-style: italic; }
+s, del { text-decoration: line-through; color: var(--text-muted); }
+mark { background: rgba(251, 191, 36, 0.25); color: #fde68a; border-radius: 2px; padding: 0 2px; }
+ins { text-decoration: underline; text-decoration-style: dashed; color: var(--span-green); }
+sub, sup { font-size: 0.75em; }
+
+/* --------------------------------------------------------------------------
+   Inline Code
+   -------------------------------------------------------------------------- */
+code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.875em;
+  background: var(--code-bg);
+  color: #9bc7ff;
+  border: 1px solid var(--code-border);
+  border-radius: var(--radius-sm);
+  padding: 0.15em 0.45em;
+}
+
+/* --------------------------------------------------------------------------
+   Code Blocks
+   -------------------------------------------------------------------------- */
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+  margin-bottom: var(--gap);
+  position: relative;
+}
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: var(--fs-sm);
+  color: var(--code-text);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   Blockquotes
+   -------------------------------------------------------------------------- */
+blockquote {
+  margin: var(--gap) 0;
+  padding: 0.85rem 1.35rem;
+  background: rgba(95, 140, 255, 0.06);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  font-style: italic;
+  position: relative;
+}
+blockquote > blockquote { border-left-color: var(--accent-dim); margin-top: 0.75rem; }
+blockquote p:last-child { margin-bottom: 0; }
+
+/* --------------------------------------------------------------------------
+   Lists
+   -------------------------------------------------------------------------- */
+ul, ol {
+  padding-left: 1.75em;
+  margin-bottom: var(--gap);
+}
+li {
+  margin-bottom: 0.35em;
+  line-height: var(--lh-text);
+}
+li > ul, li > ol { margin-top: 0.35em; margin-bottom: 0; }
+ul  { list-style-type: none; }
+ul  li::before {
+  content: '›';
+  color: var(--accent);
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  font-weight: 600;
+}
+
+/* Task lists (markdown-it-task-lists) */
+.task-list-item { list-style: none; padding-left: 0; }
+.task-list-item::before { display: none; }
+.task-list-item input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.1em;
+  height: 1.1em;
+  border: 2px solid var(--border);
+  border-radius: 3px;
+  background: var(--bg-input);
+  vertical-align: baseline;
+  margin-right: 0.5em;
+  cursor: default;
+  position: relative;
+  display: inline-block;
+  transition: border-color var(--t), background var(--t);
+}
+.task-list-item input[type="checkbox"]:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.task-list-item input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 3px; top: 0;
+  width: 5px; height: 9px;
+  border: 2px solid #fff;
+  border-top: none; border-left: none;
+  transform: rotate(45deg);
+}
+
+/* --------------------------------------------------------------------------
+   Tables
+   -------------------------------------------------------------------------- */
+.markdown-body > table, .markdown-body td table {
+  width: max-content;
+  max-width: 100%;
+}
+table {
+  border-collapse: collapse;
+  margin-bottom: var(--gap);
+  font-size: var(--fs-sm);
+}
+thead tr { background: var(--bg-elevated); }
+thead th {
+  font-family: 'Source Serif 4', 'Noto Sans SC', 'Noto Sans TC', sans-serif;
+  font-weight: 600;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  padding: 0.65rem 1rem;
+  border-bottom: 2px solid var(--border);
+  text-align: left;
+  white-space: nowrap;
+}
+td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: baseline;
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: rgba(255,255,255,0.02); }
+
+/* --------------------------------------------------------------------------
+   Horizontal Rule
+   -------------------------------------------------------------------------- */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 2.5rem 0;
+}
+
+/* --------------------------------------------------------------------------
+   Images
+   -------------------------------------------------------------------------- */
+img {
+  border-radius: var(--radius);
+  margin: var(--gap) auto;
+}
+p > img { margin: 0; display: inline; }
+
+/* --------------------------------------------------------------------------
+   Footnotes (markdown-it-footnote)
+   -------------------------------------------------------------------------- */
+.footnotes-sep { margin: 2rem 0 1rem; }
+.footnotes {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1rem;
+}
+.footnotes ol { counter-reset: none; }
+.footnote-ref a, .footnote-backref {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.8em;
+  vertical-align: super;
+}
+
+/* --------------------------------------------------------------------------
+   KaTeX overrides
+   -------------------------------------------------------------------------- */
+.katex { font-size: 1.1em; }
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5rem 0;
+  margin: var(--gap) 0;
+}
+.katex-error {
+  background: var(--danger-bg);
+  color: var(--danger-text);
+  border: 1px solid var(--danger-border);
+  border-radius: var(--radius-sm);
+  padding: 0.15em 0.4em;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--fs-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Containers — Semantic colour boxes
+   -------------------------------------------------------------------------- */
+.success, .info, .warning, .danger {
+  border: 1px solid;
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin: var(--gap) 0;
+}
+.success { background: var(--success-bg); border-color: var(--success-border); }
+.info    { background: var(--info-bg);    border-color: var(--info-border);    }
+.warning { background: var(--warning-bg); border-color: var(--warning-border); }
+.danger  { background: var(--danger-bg);  border-color: var(--danger-border);  }
+
+.success > p:first-child > strong:first-child,
+.success > p:first-child > b:first-child { color: var(--success-text); }
+.info    > p:first-child > strong:first-child,
+.info    > p:first-child > b:first-child { color: var(--info-text); }
+.warning > p:first-child > strong:first-child,
+.warning > p:first-child > b:first-child { color: var(--warning-text); }
+.danger  > p:first-child > strong:first-child,
+.danger  > p:first-child > b:first-child { color: var(--danger-text); }
+
+/* Nested containers */
+.success .warning, .info .warning, .warning .warning, .danger .warning {
+  margin: var(--gap-sm) 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   Containers — Layout (left / right / center)
+   -------------------------------------------------------------------------- */
+.left  { float: left;  margin: 0 var(--gap) var(--gap) 0; max-width: 45%; }
+.right { text-align: right; margin: 0 0 var(--gap); }
+.center {
+  text-align: center;
+  margin: var(--gap) auto;
+}
+
+/* --------------------------------------------------------------------------
+   Container — Spoiler (uses <details> rendered by custom container renderer)
+   -------------------------------------------------------------------------- */
+details.spoil {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  margin: var(--gap) 0;
+  overflow: hidden;
+}
+details.spoil > summary {
+  cursor: pointer;
+  padding: 0.75rem 1.25rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  user-select: none;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background var(--t), color var(--t);
+}
+details.spoil > summary::-webkit-details-marker { display: none; }
+details.spoil > summary::before {
+  content: '▶';
+  font-size: 0.65em;
+  transition: transform var(--t);
+  display: inline-block;
+  color: var(--accent);
+}
+details.spoil[open] > summary::before { transform: rotate(90deg); }
+details.spoil > summary:hover { background: var(--bg-input); color: var(--text-primary); }
+details.spoil[open] > summary {
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+}
+details.spoil > :not(summary) {
+  padding: 1rem 1.25rem;
+}
+details.spoil > p:last-child,
+details.spoil > *:last-child { padding-bottom: 1.25rem; }
+
+/* --------------------------------------------------------------------------
+   Container — Tabs
+   -------------------------------------------------------------------------- */
+.tabs {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: var(--gap) 0;
+}
+
+/* Tab bar — populated by JavaScript */
+.tabs-bar {
+  display: flex;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tabs-bar::-webkit-scrollbar { display: none; }
+
+.tabs-bar-btn {
+  padding: 0.6rem 1.1rem;
+  border: none;
+  background: none;
+  color: var(--text-secondary);
+  font-family: 'Source Serif 4', 'Noto Sans SC', 'Noto Sans TC', sans-serif;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color var(--t), border-color var(--t), background var(--t);
+}
+.tabs-bar-btn:hover { color: var(--text-primary); background: rgba(255,255,255,0.04); }
+.tabs-bar-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* Tab panels */
+.tab {
+  display: none;
+  padding: 1.25rem 1.5rem;
+}
+.tab.active { display: block; }
+/* Fallback: show all tabs when JS unavailable */
+.tabs:not([data-js]) .tab { display: block; }
+.tabs:not([data-js]) .tab + .tab { border-top: 1px solid var(--border-subtle); }
+
+/* --------------------------------------------------------------------------
+   Container — Columns
+   -------------------------------------------------------------------------- */
+.cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--gap);
+  margin: var(--gap) 0;
+  align-items: start;
+}
+.col {
+  min-width: 0; /* prevent overflow */
+}
+.col > p:last-child { margin-bottom: 0; }
+
+/* Responsive: single column on small screens */
+@media (max-width: 600px) {
+  .cols { grid-template-columns: 1fr; }
+  .left { float: none; max-width: 100%; margin: 0 0 var(--gap); }
+}
+
+/* --------------------------------------------------------------------------
+   TOC — in-document styles
+   (The toc plugin generates a nested <ul> at the {{toc}} position)
+   -------------------------------------------------------------------------- */
+.toc-wrapper {
+  /* Wraps the generated TOC list */
+}
+nav.toc, .toc-list {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin: var(--gap) 0;
+  font-size: var(--fs-sm);
+}
+nav.toc ul, .toc-list ul {
+  padding-left: 1.25em;
+  margin-bottom: 0;
+}
+nav.toc li, .toc-list li { margin-bottom: 0.25em; }
+nav.toc li::before, .toc-list li::before { display: none; }
+nav.toc a, .toc-list a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--t);
+}
+nav.toc a:hover, .toc-list a:hover { color: var(--accent); }
+
+/* --------------------------------------------------------------------------
+   Span — Colour classes
+   -------------------------------------------------------------------------- */
+span.red    { color: var(--span-red); }
+span.yellow { color: var(--span-yellow); }
+span.green  { color: var(--span-green); }
+span.blue   { color: var(--span-blue); }
+
+/* --------------------------------------------------------------------------
+   Span — Badge classes
+   -------------------------------------------------------------------------- */
+span.success,
+span.info,
+span.warning,
+span.danger {
+  padding: 0.15em 0.55em;
+  border-radius: 999px;
+  font-size: 0.8em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  vertical-align: baseline;
+  border: 1px solid;
+}
+span.success { background: var(--success-bg); color: var(--success-text); border-color: var(--success-border); }
+span.info    { background: var(--info-bg);    color: var(--info-text);    border-color: var(--info-border);    }
+span.warning { background: var(--warning-bg); color: var(--warning-text); border-color: var(--warning-border); }
+span.danger  { background: var(--danger-bg);  color: var(--danger-text);  border-color: var(--danger-border);  }
+
+/* --------------------------------------------------------------------------
+   Custom plugin output styles
+   -------------------------------------------------------------------------- */
+
+/* test-block (Phase 5 — dev only) */
+div.test-block {
+  background: linear-gradient(135deg, #1a1a2e, #252848);
+  border: 1px dashed var(--accent-dim);
+  border-radius: var(--radius);
+  padding: 0.75rem 1.25rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--fs-sm);
+  color: var(--accent);
+  margin: var(--gap) 0;
+}
+
+/* test-inline (Phase 5 — dev only) */
+span.test-inline {
+  background: rgba(95, 140, 255, 0.12);
+  color: var(--accent);
+  border: 1px dashed var(--accent-dim);
+  border-radius: var(--radius-sm);
+  padding: 0.1em 0.4em;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875em;
+}
+
+/* YouTube embed (Phase 8) */
+div.youtube-embed {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: #000;
+  margin: var(--gap) 0;
+}
+div.youtube-embed iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
+/* Mermaid diagrams (Phase 10) */
+div.mermaid {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin: var(--gap) 0;
+  overflow-x: auto;
+  text-align: center;
+}
+
+/* SMILES / chemical structures (Phase 11) */
+div.smiles-render {
+  border-radius: 0;
+}
+div.smiles-render canvas {
+  border-radius: 0;
+}
+
+/* QR code (Phase 9) */
+span.qrcode {
+  vertical-align: baseline;
+  background: #fff;
+  border-radius: var(--radius-sm);
+  padding: 4px;
+}
+
+/* Span with arbitrary class (Phase 7) */
+.markdown-body span[class]:not(.test-inline):not(.qrcode):not(.katex):not(.katex-inner)
+:not(.success):not(.info):not(.warning):not(.danger)
+:not(.red):not(.yellow):not(.green):not(.blue) {
+  /* fallback for unrecognised span classes */
+}
+
+/* --------------------------------------------------------------------------
+   Focus indicators (keyboard navigation)
+   -------------------------------------------------------------------------- */
+a:focus-visible,
+.tabs-bar-btn:focus-visible,
+details.spoil > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+}
+.task-list-item input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Print
+   -------------------------------------------------------------------------- */
+@media print {
+  body { background: #fff; color: #000; padding: 0; }
+  .markdown-body { background: #fff; border: none; box-shadow: none; padding: 0; max-width: 100%; }
+  a { color: #000; text-decoration: underline; }
+  code { background: #f4f4f4; border: 1px solid #ccc; }
+  pre  { background: #f4f4f4; }
+  blockquote { border-left-color: #aaa; background: #f9f9f9; }
+  tr, iframe, video, pre, blockquote {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+</style>
+<style>
+.course-intro{opacity:.85}
+.chapter-cards{list-style:none;padding:0;margin:1.5rem 0;display:grid;gap:.75rem}
+.chapter-cards li{border:1px solid rgba(128,128,128,.28);border-radius:.6rem;padding:.85rem 1.1rem}
+.chapter-cards .chapter-link{font-weight:600;text-decoration:none;font-size:1.1rem}
+.chapter-cards .card-links{display:block;margin-top:.35rem;font-size:.82rem;opacity:.75}
+.chapter-cards .card-links a{text-decoration:none}
+.site-footer{margin-top:3rem;padding-top:1rem;border-top:1px solid rgba(128,128,128,.2);font-size:.8rem;opacity:.6}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "test",
+  "learningResourceType": "course",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "creativeWorkStatus": "Published",
+  "about": "chemistry",
+  "url": "https://fishdream25.github.io/test-6iaxq0n2-oer/"
+}
+</script>
+</head>
+<body>
+<div class="markdown-body">
+<h1>test</h1>
+<ul class="chapter-cards">
+<li><a class="chapter-link" href="chapters/01-getting-started.md.html">test</a><span class="card-links"><a href="slides/01-getting-started.slides.html">Slides</a> · <a href="paged/01-getting-started.paged.html">Print</a></span></li>
+</ul>
+<footer class="site-footer">Published with Alembic</footer>
+</div>
+<script>
+(function (global) {
+  var expandedQr = null;
+  var expandedSourceQr = null;
+
+  function collapseQr() {
+    if (!expandedQr) return;
+
+    if (expandedSourceQr) {
+      expandedSourceQr.classList.remove('is-expanded');
+      expandedSourceQr.setAttribute('aria-expanded', 'false');
+    }
+
+    if (expandedQr.parentNode) {
+      expandedQr.parentNode.removeChild(expandedQr);
+    }
+
+    if (global.document && global.document.body) {
+      global.document.body.style.overflow = '';
+    }
+    expandedQr = null;
+    expandedSourceQr = null;
+  }
+
+  function toggleQr(node) {
+    if (expandedSourceQr === node) {
+      collapseQr();
+      return;
+    }
+
+    collapseQr();
+    if (!global.document || !global.document.body) {
+      return;
+    }
+
+    expandedSourceQr = node;
+    expandedSourceQr.classList.add('is-expanded');
+    expandedSourceQr.setAttribute('aria-expanded', 'true');
+
+    expandedQr = node.cloneNode(true);
+    expandedQr.classList.add('qrcode-overlay', 'is-expanded');
+    expandedQr.setAttribute('aria-hidden', 'true');
+    expandedQr.removeAttribute('aria-expanded');
+    expandedQr.removeAttribute('tabindex');
+    expandedQr.removeAttribute('role');
+    expandedQr.addEventListener('click', function (event) {
+      event.stopPropagation();
+      collapseQr();
+    });
+
+    global.document.body.appendChild(expandedQr);
+
+    if (global.document && global.document.body) {
+      global.document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function initQrCodes(root) {
+    if (!root || typeof root.querySelectorAll !== 'function') return;
+
+    Array.prototype.slice.call(root.querySelectorAll('.qrcode')).forEach(function (node) {
+      if (node.getAttribute('data-qr-ready') === '1') return;
+
+      node.setAttribute('data-qr-ready', '1');
+      node.addEventListener('click', function (event) {
+        event.stopPropagation();
+        toggleQr(node);
+      });
+      node.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          toggleQr(node);
+        }
+        if (event.key === 'Escape') {
+          collapseQr();
+        }
+      });
+    });
+  }
+
+  function initTabs(root) {
+    if (!root || typeof root.querySelectorAll !== 'function') return;
+    Array.prototype.slice.call(root.querySelectorAll('.tabs')).forEach(function (tabs) {
+      // data-js both guards re-init and switches the theme CSS from the no-JS
+      // fallback (all panels shown) to JS mode (only the .active panel shown).
+      if (tabs.getAttribute('data-js') === '1') return;
+      var panels = Array.prototype.slice.call(tabs.querySelectorAll(':scope > .tab'));
+      if (!panels.length) return;
+      tabs.setAttribute('data-js', '1');
+
+      var bar = global.document.createElement('div');
+      bar.className = 'tabs-bar';
+      panels.forEach(function (panel, i) {
+        var label = panel.getAttribute('data-label') || 'Tab ' + (i + 1);
+        var btn = global.document.createElement('button');
+        btn.className = 'tabs-bar-btn' + (i === 0 ? ' active' : '');
+        btn.textContent = label;
+        btn.addEventListener('click', function () {
+          Array.prototype.slice.call(tabs.querySelectorAll('.tabs-bar-btn')).forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          panel.classList.add('active');
+        });
+        bar.appendChild(btn);
+      });
+      tabs.insertBefore(bar, tabs.firstChild);
+      panels[0].classList.add('active');
+    });
+  }
+
+  function init(root) {
+    var r = root || global.document;
+    initQrCodes(r);
+    initTabs(r);
+  }
+
+  // ---- copy-as-markdown: DOM -> Markdown walker ---------------------------
+  // Converts a selected DOM fragment back to Markdown so that copying rendered
+  // content yields source, not HTML. Standard constructs are reconstructed from
+  // their tags; generated constructs (math, mermaid, smiles, qr, youtube, chart) carry
+  // a [data-md] breadcrumb that is emitted verbatim. Written without template
+  // literals/backticks because this whole file is a String.raw template.
+  var BT = String.fromCharCode(96);
+  var FENCE = BT + BT + BT;
+
+  function rt_repeat(s, n) {
+    var out = '';
+    for (var i = 0; i < n; i++) out += s;
+    return out;
+  }
+
+  function rt_attr(node, name) {
+    return node && node.getAttribute ? node.getAttribute(name) : null;
+  }
+
+  function rt_isBlockElement(node) {
+    if (!node || node.nodeType !== 1) return false;
+    if (rt_attr(node, 'data-md') != null) return true;
+    var tag = node.tagName.toLowerCase();
+    if (/^(p|div|section|article|figure|h[1-6]|ul|ol|li|blockquote|pre|table|thead|tbody|tr|hr|details)$/.test(tag)) return true;
+    if (node.classList && (node.classList.contains('katex-display') || node.classList.contains('mermaid'))) return true;
+    return false;
+  }
+
+  function rt_katex(node, display) {
+    var ann = node.querySelector ? node.querySelector('annotation[encoding="application/x-tex"]') : null;
+    var tex = (ann ? ann.textContent : node.textContent) || '';
+    tex = tex.replace(/^\s+|\s+$/g, '');
+    if (display) return '$$\n' + tex + '\n$$';
+    return '$' + tex + '$';
+  }
+
+  function rt_img(node) {
+    var alt = rt_attr(node, 'alt') || '';
+    var src = rt_attr(node, 'src') || '';
+    var title = rt_attr(node, 'title');
+    return '![' + alt + '](' + src + (title ? ' "' + title + '"' : '') + ')';
+  }
+
+  function rt_inlineChildren(node) {
+    var out = '';
+    var kids = node.childNodes;
+    for (var i = 0; i < kids.length; i++) out += rt_inlineNode(kids[i]);
+    return out;
+  }
+
+  function rt_inlineNode(node) {
+    if (node.nodeType === 3) return node.nodeValue.replace(/\s+/g, ' ');
+    if (node.nodeType !== 1) return '';
+    var dm = rt_attr(node, 'data-md');
+    if (dm != null) return dm;
+    if (node.classList && node.classList.contains('katex')) return rt_katex(node, false);
+    var tag = node.tagName.toLowerCase();
+    switch (tag) {
+      case 'strong': case 'b': return '**' + rt_inlineChildren(node) + '**';
+      case 'em': case 'i': return '*' + rt_inlineChildren(node) + '*';
+      case 'code': return BT + (node.textContent || '') + BT;
+      case 'a':
+        var href = rt_attr(node, 'href') || '';
+        var title = rt_attr(node, 'title');
+        return '[' + rt_inlineChildren(node) + '](' + href + (title ? ' "' + title + '"' : '') + ')';
+      case 'del': case 's': return '~~' + rt_inlineChildren(node) + '~~';
+      case 'ins': return '++' + rt_inlineChildren(node) + '++';
+      case 'mark': return '==' + rt_inlineChildren(node) + '==';
+      case 'sub': return '~' + rt_inlineChildren(node) + '~';
+      case 'sup': return '^' + rt_inlineChildren(node) + '^';
+      case 'br': return '  \n';
+      case 'img': return rt_img(node);
+      case 'input': return '';
+      case 'span':
+        var spCls = (rt_attr(node, 'class') || '').trim();
+        return spCls ? '{{sp[' + spCls + '] ' + rt_inlineChildren(node) + '}}' : rt_inlineChildren(node);
+      default: return rt_inlineChildren(node);
+    }
+  }
+
+  function rt_align(cell) {
+    var style = (rt_attr(cell, 'style') || '').toLowerCase();
+    if (style.indexOf('center') !== -1) return 'center';
+    if (style.indexOf('right') !== -1) return 'right';
+    if (style.indexOf('left') !== -1) return 'left';
+    return '';
+  }
+
+  function rt_sep(align) {
+    if (align === 'center') return ':---:';
+    if (align === 'right') return '---:';
+    if (align === 'left') return ':---';
+    return '---';
+  }
+
+  function rt_tableRows(headRow, bodyRows) {
+    var rows = [];
+    var header = [];
+    var aligns = [];
+    if (headRow) {
+      var hc = headRow.children;
+      for (var i = 0; i < hc.length; i++) { header.push(rt_inlineChildren(hc[i]).trim()); aligns.push(rt_align(hc[i])); }
+    }
+    rows.push('| ' + header.join(' | ') + ' |');
+    var seps = [];
+    for (var s = 0; s < header.length; s++) seps.push(rt_sep(aligns[s]));
+    rows.push('| ' + seps.join(' | ') + ' |');
+    for (var r = 0; r < bodyRows.length; r++) {
+      var cells = [];
+      var tds = bodyRows[r].children;
+      for (var c = 0; c < tds.length; c++) cells.push(rt_inlineChildren(tds[c]).trim());
+      rows.push('| ' + cells.join(' | ') + ' |');
+    }
+    return rows.join('\n');
+  }
+
+  function rt_table(tbl) {
+    var headRow = tbl.querySelector ? tbl.querySelector('thead tr') : null;
+    var bodyRows = tbl.querySelectorAll ? tbl.querySelectorAll('tbody tr') : [];
+    return rt_tableRows(headRow, bodyRows);
+  }
+
+  // Reconstruct a table from bare table-internal nodes (thead/tbody/tr), e.g.
+  // when a selection inside a table loses its <table> wrapper.
+  function rt_tableFromParts(parts) {
+    var headRow = null;
+    var bodyRows = [];
+    for (var i = 0; i < parts.length; i++) {
+      var p = parts[i];
+      var tag = p.tagName.toLowerCase();
+      if (tag === 'thead') { var tr = p.querySelector ? p.querySelector('tr') : null; if (tr && !headRow) headRow = tr; }
+      else if (tag === 'tbody') { var trs = p.querySelectorAll ? p.querySelectorAll('tr') : []; for (var j = 0; j < trs.length; j++) bodyRows.push(trs[j]); }
+      else if (tag === 'tr') { if (!headRow) headRow = p; else bodyRows.push(p); }
+    }
+    return rt_tableRows(headRow, bodyRows);
+  }
+
+  function rt_codeBlock(pre) {
+    var code = pre.querySelector ? (pre.querySelector('code') || pre) : pre;
+    var lang = '';
+    var cls = rt_attr(code, 'class') || '';
+    var m = cls.match(/language-([A-Za-z0-9_+#-]+)/);
+    if (m) lang = m[1];
+    var text = (code.textContent || '').replace(/\n$/, '');
+    return FENCE + lang + '\n' + text + '\n' + FENCE;
+  }
+
+  function rt_list(node, ordered, depth) {
+    var items = [];
+    var idx = 1;
+    var kids = node.childNodes;
+    for (var i = 0; i < kids.length; i++) {
+      var li = kids[i];
+      if (li.nodeType !== 1 || li.tagName.toLowerCase() !== 'li') continue;
+      items.push(rt_listItem(li, ordered, idx, depth));
+      idx++;
+    }
+    return items.join('\n');
+  }
+
+  function rt_listItem(li, ordered, idx, depth) {
+    var indent = rt_repeat('  ', depth);
+    var marker = ordered ? (idx + '. ') : '- ';
+    var task = '';
+    var cb = li.querySelector ? li.querySelector('input[type="checkbox"]') : null;
+    if (cb) task = (cb.checked || rt_attr(cb, 'checked') != null) ? '[x] ' : '[ ] ';
+    var inlineParts = '';
+    var nested = '';
+    var kids = li.childNodes;
+    for (var i = 0; i < kids.length; i++) {
+      var c = kids[i];
+      if (c.nodeType === 1 && /^(ul|ol)$/.test(c.tagName.toLowerCase())) {
+        nested += '\n' + rt_list(c, c.tagName.toLowerCase() === 'ol', depth + 1);
+      } else {
+        inlineParts += rt_inlineNode(c);
+      }
+    }
+    inlineParts = inlineParts.replace(/\s+/g, ' ').trim();
+    return indent + marker + task + inlineParts + nested;
+  }
+
+  function rt_blockquote(node) {
+    var inner = rt_blockChildren(node);
+    var lines = inner.split('\n');
+    var out = [];
+    for (var i = 0; i < lines.length; i++) out.push(lines[i] ? '> ' + lines[i] : '>');
+    return out.join('\n');
+  }
+
+  function rt_blockChildren(node) {
+    var parts = [];
+    var kids = node.childNodes;
+    var i = 0;
+    while (i < kids.length) {
+      var k = kids[i];
+      // A selection can contain bare <li> elements (when the user selects a
+      // list's contents rather than the <ul>/<ol> wrapper). Group a run of them
+      // into a bullet list instead of emitting each as a separate block.
+      if (k.nodeType === 1 && k.tagName.toLowerCase() === 'li') {
+        var lis = [];
+        while (i < kids.length) {
+          var kk = kids[i];
+          if (kk.nodeType === 1 && kk.tagName.toLowerCase() === 'li') { lis.push(kk); i++; }
+          else if (kk.nodeType === 3 && !(kk.nodeValue || '').trim()) { i++; }
+          else break;
+        }
+        var items = [];
+        for (var j = 0; j < lis.length; j++) items.push(rt_listItem(lis[j], false, j + 1, 0));
+        parts.push(items.join('\n'));
+        continue;
+      }
+      // Bare table-internal nodes (selection inside a table that lost its
+      // <table> wrapper) — reconstruct a Markdown table.
+      if (k.nodeType === 1 && /^(thead|tbody|tr)$/.test(k.tagName.toLowerCase())) {
+        var trows = [];
+        while (i < kids.length) {
+          var tk = kids[i];
+          if (tk.nodeType === 1 && /^(thead|tbody|tr)$/.test(tk.tagName.toLowerCase())) { trows.push(tk); i++; }
+          else if (tk.nodeType === 3 && !(tk.nodeValue || '').trim()) { i++; }
+          else break;
+        }
+        parts.push(rt_tableFromParts(trows));
+        continue;
+      }
+      var s = rt_blockNode(k);
+      if (s && s.replace(/\s/g, '') !== '') parts.push(s.replace(/\s+$/, ''));
+      i++;
+    }
+    return parts.join('\n\n');
+  }
+
+  var rt_containerNames = ['info', 'success', 'warning', 'danger', 'left', 'right', 'center', 'cols', 'col', 'tabs', 'tab'];
+  // A markdown-it-container div.name (or details.spoil) -> its ::: name
+  // directive name, or null if the node is not a container.
+  function rt_containerName(node) {
+    if (node.nodeType !== 1 || !node.classList) return null;
+    var tag = node.tagName.toLowerCase();
+    if (tag === 'details' && node.classList.contains('spoil')) {
+      var sum = node.querySelector ? node.querySelector('summary') : null;
+      var title = sum ? (sum.textContent || '').trim() : '';
+      return title ? 'spoil ' + title : 'spoil';
+    }
+    if (tag !== 'div') return null;
+    for (var i = 0; i < rt_containerNames.length; i++) {
+      var n = rt_containerNames[i];
+      if (node.classList.contains(n)) {
+        if (n === 'tab') { var lbl = rt_attr(node, 'data-label'); return lbl ? 'tab ' + lbl : 'tab'; }
+        return n;
+      }
+    }
+    return null;
+  }
+  // Emit a ::: name ... ::: block, using a fence longer than any inner fence so
+  // nested containers (cols > col, tabs > tab) re-parse correctly.
+  function rt_containerMd(node, name) {
+    var parts = [];
+    var kids = node.childNodes;
+    for (var i = 0; i < kids.length; i++) {
+      var k = kids[i];
+      if (k.nodeType === 1) {
+        var ktag = k.tagName.toLowerCase();
+        if (ktag === 'summary') continue; // spoil title, captured in the name
+        if (k.classList && k.classList.contains('tabs-bar')) continue; // JS-injected tab buttons
+      }
+      var m = rt_blockNode(k);
+      if (m && m.trim()) parts.push(m.trim());
+    }
+    var inner = parts.join('\n\n');
+    var maxFence = 2;
+    var lines = inner.split('\n');
+    for (var j = 0; j < lines.length; j++) {
+      var mm = lines[j].match(/^(:{3,})/);
+      if (mm && mm[1].length > maxFence) maxFence = mm[1].length;
+    }
+    var fence = rt_repeat(':', Math.max(3, maxFence + 1));
+    return fence + ' ' + name + '\n' + inner + '\n' + fence;
+  }
+
+  function rt_blockNode(node) {
+    if (node.nodeType === 3) {
+      var t = node.nodeValue;
+      return (t && t.trim()) ? t.replace(/\s+/g, ' ').trim() : '';
+    }
+    if (node.nodeType !== 1) return '';
+    var dm = rt_attr(node, 'data-md');
+    if (dm != null) return dm;
+    if (node.classList) {
+      // Display math: the katex-display span OR its katex-block <p> wrapper.
+      // Without this the wrapper is walked as a paragraph and the inner katex is
+      // emitted as inline math instead of a block equation.
+      if (node.classList.contains('katex-display') || node.classList.contains('katex-block')) {
+        var k = node.querySelector ? node.querySelector('.katex') : null;
+        return rt_katex(k || node, true);
+      }
+      if (node.classList.contains('mermaid')) return '{{mermaid\n' + (node.textContent || '').trim() + '\n}}';
+    }
+    var tag = node.tagName.toLowerCase();
+    var hm = tag.match(/^h([1-6])$/);
+    if (hm) return rt_repeat('#', parseInt(hm[1], 10)) + ' ' + rt_inlineChildren(node).trim();
+    switch (tag) {
+      case 'p': return rt_inlineChildren(node).trim();
+      case 'ul': return rt_list(node, false, 0);
+      case 'ol': return rt_list(node, true, 0);
+      case 'pre': return rt_codeBlock(node);
+      case 'blockquote': return rt_blockquote(node);
+      case 'table': return rt_table(node);
+      case 'hr': return '---';
+      case 'li': return rt_inlineChildren(node).trim();
+      case 'figure': case 'div': case 'section': case 'article': case 'details': case 'summary':
+        var cn = rt_containerName(node);
+        if (cn) return rt_containerMd(node, cn);
+        return rt_blockChildren(node);
+      default: return rt_inlineNode(node).trim();
+    }
+  }
+
+  function elementToMarkdown(root) {
+    if (!root) return '';
+    var hasBlock = false;
+    var kids = root.childNodes || [];
+    for (var i = 0; i < kids.length; i++) {
+      if (rt_isBlockElement(kids[i])) { hasBlock = true; break; }
+    }
+    var out = hasBlock ? rt_blockChildren(root) : rt_inlineChildren(root);
+    return out.replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').replace(/^\s+|\s+$/g, '');
+  }
+
+  function rt_isEditable(node) {
+    while (node) {
+      if (node.nodeType === 1) {
+        var tag = node.tagName.toLowerCase();
+        if (tag === 'input' || tag === 'textarea') return true;
+        if (node.isContentEditable) return true;
+      }
+      node = node.parentNode;
+    }
+    return false;
+  }
+
+  function rt_isCopyRoot(node) {
+    return node.nodeType === 1 && node.classList &&
+      (node.classList.contains('markdown-body') || rt_attr(node, 'data-orz-copy') != null);
+  }
+  function rt_withinCopyRoot(node) {
+    while (node) {
+      if (rt_isCopyRoot(node)) return true;
+      node = node.parentNode;
+    }
+    return false;
+  }
+
+  // When a selection sits entirely within one table/blockquote/pre — or inside a
+  // ::: container — copy that whole block, so the wrapper is included (a partial
+  // table/quote fragment isn't valid Markdown, and a copied container should keep
+  // its ::: fence). Browsers often clone such selections without the wrapper.
+  // Tables/quotes/code don't nest, so the innermost wins; containers DO nest
+  // (cols > col, tabs > tab), so promote to the OUTERMOST one.
+  function rt_promotableBlock(node) {
+    var container = null;
+    while (node && !rt_isCopyRoot(node)) {
+      if (node.nodeType === 1) {
+        var tag = node.tagName.toLowerCase();
+        if (tag === 'table' || tag === 'blockquote' || tag === 'pre') return node;
+        // A selection inside a display equation copies the whole block equation;
+        // a partial KaTeX fragment is not valid Markdown.
+        if (node.classList &&
+            (node.classList.contains('katex-block') || node.classList.contains('katex-display'))) return node;
+        if (rt_containerName(node)) container = node;
+      }
+      node = node.parentNode;
+    }
+    return container;
+  }
+
+  function onCopy(event) {
+    if (!global.document) return;
+    var sel = global.getSelection ? global.getSelection()
+      : (global.document.getSelection ? global.document.getSelection() : null);
+    if (!sel || sel.rangeCount === 0 || sel.isCollapsed) return;
+    if (rt_isEditable(sel.anchorNode) || rt_isEditable(sel.focusNode)) return;
+    if (!rt_withinCopyRoot(sel.anchorNode) && !rt_withinCopyRoot(sel.focusNode)) return;
+
+    var md;
+    var range0 = sel.getRangeAt(0);
+    var common = range0.commonAncestorContainer;
+    var promoted = rt_promotableBlock(common.nodeType === 1 ? common : common.parentNode);
+    if (promoted && sel.rangeCount === 1) {
+      var pwrap = global.document.createElement('div');
+      pwrap.appendChild(promoted.cloneNode(true));
+      md = elementToMarkdown(pwrap);
+    } else {
+      var container = global.document.createElement('div');
+      for (var i = 0; i < sel.rangeCount; i++) container.appendChild(sel.getRangeAt(i).cloneContents());
+      md = elementToMarkdown(container);
+    }
+    if (!md) return;
+    var cd = event.clipboardData || global.clipboardData;
+    if (cd && cd.setData) {
+      cd.setData('text/plain', md);
+      if (event.preventDefault) event.preventDefault();
+    }
+  }
+
+  function bindGlobalHandlers() {
+    if (!global.document || global.__orzMarkdownRuntimeBound) return;
+    global.__orzMarkdownRuntimeBound = true;
+
+    global.document.addEventListener('click', function (event) {
+      if (expandedQr && !expandedQr.contains(event.target)) {
+        collapseQr();
+      }
+    });
+
+    global.document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        collapseQr();
+      }
+    });
+
+    // Copy rendered selections as Markdown source.
+    global.document.addEventListener('copy', onCopy);
+  }
+
+  global.OrzMarkdownRuntime = Object.assign({}, global.OrzMarkdownRuntime, {
+    init: init,
+    initQrCodes: initQrCodes,
+    initTabs: initTabs,
+    collapseQr: collapseQr,
+    elementToMarkdown: elementToMarkdown,
+  });
+
+  bindGlobalHandlers();
+
+  if (global.document) {
+    if (global.document.readyState === 'loading') {
+      global.document.addEventListener('DOMContentLoaded', function () {
+        init(global.document);
+      }, { once: true });
+    } else {
+      init(global.document);
+    }
+  }
+})(typeof globalThis !== 'undefined' ? globalThis : window);
+</script>
+</body>
+</html>
