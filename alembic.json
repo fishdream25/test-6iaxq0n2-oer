@@ -15,5 +15,8 @@
     "name": "test-6iaxq0n2-private"
   },
   "theme": "dark-elegant-3",
+  "themes": {
+    "slides": "architect"
+  },
   "createdAt": "2026-06-18T00:06:52.733Z"
 }
